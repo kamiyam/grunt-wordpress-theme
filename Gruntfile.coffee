@@ -225,12 +225,13 @@ module.exports = (grunt) ->
       theme:
         src: [config.wp.themeDir]
         options:
-          force: false
+#          force: true
       dev:
         cwd: config.devDir
         src: ["**"]
         options:
           force: true
+
     sync:
       dev:
         files: [
