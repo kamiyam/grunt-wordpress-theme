@@ -4,4 +4,10 @@ node_modules
 .idea
 .DS_Store
 
+## output folder for development
 .tmp/
+
+## theme dir
+app/
+!app/style.css.default
+!app/linker/**
