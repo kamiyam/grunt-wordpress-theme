@@ -224,7 +224,7 @@ module.exports = (grunt) ->
         src: ".Gruntfile.js"
       theme:
         src: [config.wp.themeDir]
-        options:
+#        options:
 #          force: true
       dev:
         cwd: config.devDir
