@@ -8,6 +8,6 @@ node_modules
 .tmp/
 
 ## theme dir
-app/
+app/*
 !app/style.css.default
-!app/linker/**
+!app/linker/
