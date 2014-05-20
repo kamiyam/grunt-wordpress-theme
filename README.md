@@ -159,7 +159,9 @@ Text Domain: twentyfourteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+```
 
+```
 //変更後
 /*
 Theme Name: @@theme_name
@@ -205,6 +207,8 @@ mysql は各自で起動するよう設定してください。
 
 強制的にファイルを出力(元のテーマファイルは削除されます)する場合は、 ``grunt clean:theme`` タスクの ``force`` プロパティを ``true`` に変更します。
 (clean.theme.options.force プロパティのコメントアウトを外します)
+
+※ themeフォルダ以下指定テーマフォルダは強制的に削除されるので注意が必要
 
 ー Gruntfile.coffee
 
