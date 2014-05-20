@@ -56,8 +56,8 @@ WordPress-root
 │   ├── plugins
 │   ├── themes
 │   │   ├── index.php
-│   │   ├── grunt-twentyfourteen (theme.json.badge.text_domainプロパティ値) フォルダ
-│   │   └├─ ......
+│   │   ├── grunt-twentyfourteen[theme.json badge.text_domainプロパティ値]フォルダ (自動出力)
+│   │   └── ......
 │   │  
 │   └── upgrade
 ├── wp-includes
@@ -101,9 +101,9 @@ grunt 設定ファイル
 
 #### badge プロパティ
 
-``style.css`` の badge 部分の出力を個々で設定します。
+``style.css`` の badge 部分の出力をここで設定します。
 
-``theme.badge`` の設定を変更することで最終的に出力されるテーマ名･フォルダ名を変更することが出来ます。
+プロパティの設定を変更することで、最終的に出力されるテーマ名･フォルダ名を変更することが出来ます。
 
 #### assets_dir プロパティ
 

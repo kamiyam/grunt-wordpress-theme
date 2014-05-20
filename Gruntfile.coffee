@@ -318,10 +318,11 @@ module.exports = (grunt) ->
 
   # task configure
   grunt.registerTask "default", ->
-    grunt.task.run ["serv"];
+    grunt.task.run ["coffee:grunt", "clean", "sync:dev", "compile", "symlink:dev", "replace:badge", "open", "watch"]
+    init()
 
   grunt.registerTask "serv", ->
-    grunt.task.run ["external_daemon:php", "coffee:grunt", "clean", "sync:dev", "compile", "symlink:dev", "replace:badge", "open", "watch"]
+    grunt.task.run ["external_daemon:php", "default"]
     init()
 
   grunt.registerTask "build", ["clean", "sync:dev", "compile", "replace:badge", "sync:dist"]
