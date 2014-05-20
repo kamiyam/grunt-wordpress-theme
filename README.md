@@ -34,7 +34,7 @@ WordPress-root
 │   │   ├── Gruntfile.coffee
 │   │   ├── README.md
 │   │   ├── .tmp (自動出力)
-│   │   ├── app <ー テーマ作成用フォルダ
+│   │   ├── app
 │   │   │   ├── linker
 │   │   │   │   ├── css
 │   │   │   │   │   ├── less.less
@@ -73,11 +73,21 @@ grunt 設定ファイル
 
 テーマファイル一式の編集を行うディレクトリ
 
-``grunt`` のコマンドにより ``wp-content/themes`` フォルダ以下へ シンボリックリンクを貼る or ファイル一式をコピーします。
+``grunt`` コマンドにより
+
+- ``grunt/.tmp``フォルダへコンパイル出力
+- ``wp-content/themes`` フォルダ以下へ シンボリックリンクを貼る or ファイル一式をコピー
+
 
 ### grunt/app/linker
 
-``CoffeeScript`` ``TypeScript`` ``Sass``  ``LESS``  ``stylus`` の自動コンパイルを行うフォルダ群
+#### grunt/app/linker/js
+
+``CoffeeScript`` ``TypeScript`` の自動コンパイルを行うフォルダ群
+
+#### grunt/app/linker/css
+
+``Sass``  ``LESS``  ``stylus`` の自動コンパイルを行うフォルダ群
 
 ### package.json
 
@@ -86,9 +96,11 @@ grunt 設定ファイル
 ``npm install`` を実行することでダウンロードします
 
 ### theme.json
+
 テーマに関する設定を行うファイル
 
 #### badge プロパティ
+
 ``style.css`` の badge 部分の出力を個々で設定します。
 
 ``theme.badge`` の設定を変更することで最終的に出力されるテーマ名･フォルダ名を変更することが出来ます。
@@ -112,10 +124,10 @@ WordPress サイトのURLを指定します。
 ## How to use
 
 ### grunt 等のmoduleをダウンロード
+
 ```
 cd grunt && npm install
 ```
-
 
 ### テーマファイルの設定
 
@@ -173,12 +185,28 @@ Created at: @@timestamp
 
 `` grunt ``
 
+MAMP等 すでにサーバ とデータベース が起動している場合に使用します。
+コンパイル機能と LiveReload を実行する(要プラグイン)設定です。
+
+
+``grunt serv``
+
+デフォルトの コンパイル機能 LiveReloadと合わせて php の ビルトインサーバを使用して WordPress を起動します。
+mysql は各自で起動するよう設定してください。
+
+``grunt build``
+
+各ファイルをコンパイルし、``themes`` フォルダ以下にファイル一式を作成します。
+
+
+### ``themes`` フォルダ へのファイル出力について
+
 ``themes`` フォルダ以下に theme.json で設定している text_domain と同じ名称のフォルダが存在する場合は ``themes`` 以下のフォルダを削除する必要があります。
 
 強制的にファイルを出力(元のテーマファイルは削除されます)する場合は、 ``grunt clean:theme`` タスクの ``force`` プロパティを ``true`` に変更します。
 (clean.theme.options.force プロパティのコメントアウトを外します)
 
-Gruntfile.coffee
+ー Gruntfile.coffee
 
 ```
     clean:
@@ -194,17 +222,3 @@ Gruntfile.coffee
         options:
           force: true
 ```
-
-
-
-
-
-``grunt serv``
-
-デフォルトの コンパイル機能 LiveReloadと合わせて php の ビルトインサーバを使用して WordPress を起動します。
-mysql は各自で起動するよう設定してください。
-
-``grunt build``
-
-各ファイルをコンパイルし、``themes`` フォルダ以下にファイル一式を作成します。
-
