@@ -11,11 +11,12 @@ This files is Grunt's setting For WordPress Theme
 
 # Installation
 
-WordPress ``wp-content`` フォルダへ移動します
+既存のWordPress ``wp-content`` フォルダへ移動します
 
-```cd path/to/wordpress-root```
-
-```cd wp-content```
+```
+cd path/to/wordpress-root
+cd wp-content
+```
 
 Grunt のファイル一式をダウンロード
 
@@ -99,22 +100,23 @@ grunt 設定ファイル
 
 テーマに関する設定を行うファイル
 
-#### badge プロパティ
+- badge プロパティ
+
 
 ``style.css`` の badge 部分の出力をここで設定します。
 
 プロパティの設定を変更することで、最終的に出力されるテーマ名･フォルダ名を変更することが出来ます。
 
-#### assets_dir プロパティ
+- assets_dir プロパティ
 
 ``CoffeeScript`` ``TypeScript`` ``Sass``  ``LESS``  ``stylus`` の変更を監視し自動コンパイルを行う監視フォルダを設定します。
 
 デフォルトで、Twenty Fourteen の利用を想定していますが、それぞれのテーマのフォルダ構成に合わせて変更することも可能です。
 
-また、 ``linker`` フォルダ以下の各ディレクトリも同じ構成を想定しているので、theme.json の設定を変更する場合は、``linker`` 以下の各フォルダ名を変更する必要があります。
+また、 ``linker`` フォルダ以下の各ディレクトリも同じ構成を想定しているので、theme.json の設定を変更する場合は、``linker`` 以下の各フォルダ名を変更する必要があります。  
 (※ ``linker`` フォルダ以下のコンパイルを動作させる場合)
 
-#### url プロパティ
+- url プロパティ
 
 WordPress サイトのURLを指定します。
 
@@ -135,7 +137,7 @@ cd grunt && npm install
 
 #### Twenty Fourteen を使用する場合
 
-``wp-content/themes/twentyfourteen/**`` -> ``grunt/app`/**`
+``wp-content/themes/twentyfourteen/**`` -> ``grunt/app/**``
 
 次に ``grunt/app/style.css`` 先頭個所のテーマ設定を ``grunt/app/style.css.default`` を参考に編集します。
 
@@ -190,7 +192,6 @@ Created at: @@timestamp
 MAMP等 すでにサーバ とデータベース が起動している場合に使用します。
 コンパイル機能と LiveReload を実行する(要プラグイン)設定です。
 
-
 ``grunt serv``
 
 デフォルトの コンパイル機能 LiveReloadと合わせて php の ビルトインサーバを使用して WordPress を起動します。
@@ -203,14 +204,14 @@ mysql は各自で起動するよう設定してください。
 
 ### ``themes`` フォルダ へのファイル出力について
 
-``themes`` フォルダ以下に theme.json で設定している text_domain と同じ名称のフォルダが存在する場合は ``themes`` 以下のフォルダを削除する必要があります。
+theme.json で設定している text_domain と同じ名称のフォルダが``themes`` フォルダ以下に存在する場合は ``themes`` 以下の同名のフォルダを削除する必要があります。
 
-強制的にファイルを出力(元のテーマファイルは削除されます)する場合は、 ``grunt clean:theme`` タスクの ``force`` プロパティを ``true`` に変更します。
+強制的にファイルを出力する場合は、 ``grunt clean:theme`` タスクの ``force`` プロパティを ``true`` に変更します。
 (clean.theme.options.force プロパティのコメントアウトを外します)
 
-※ themeフォルダ以下指定テーマフォルダは強制的に削除されるので注意が必要
+※ themeフォルダ以下の同名のテーマフォルダは強制的に削除されるので注意が必要です
 
-ー Gruntfile.coffee
+- Gruntfile.coffee
 
 ```
     clean:
